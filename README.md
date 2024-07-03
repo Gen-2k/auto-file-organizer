@@ -7,16 +7,16 @@ auto-file-organizer is a Node.js script that organizes files based on specified 
 To install and use auto-file-organizer, follow these steps:
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/Gen-2k/auto-file-organizer.git
-   cd auto-file-organizer
-   ```
+ ```bash
+  git clone https://github.com/Gen-2k/auto-file-organizer.git
+  cd auto-file-organizer
+ ```
    
 2. Install dependencies using npm:
     
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+ ```
 
 ## Dependencies
 
