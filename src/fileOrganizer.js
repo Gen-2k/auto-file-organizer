@@ -11,6 +11,10 @@ const winston = require("winston"); // Logging module
  * This object is used to determine which folder a file should be moved to based on its extension
  */
 const FILE_TYPE_MAPPING = {
+  Programming: [
+    ".js", ".py", ".java", ".cpp", ".cs", ".php", ".html", ".css", ".sql",
+    ".rb", ".swift", ".go", ".rs", ".ts", ".jsx", ".vue"
+  ],
   Pictures: [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff"],
   Documents: [".pdf", ".docx", ".txt", ".csv", ".xlsx", ".pptx"],
   Videos: [".mp4", ".mov", ".avi", ".mkv", ".wmv"],
@@ -19,6 +23,7 @@ const FILE_TYPE_MAPPING = {
   Software: [".exe", ".msi"],
   Adobe: [".psd", ".ai"],
 };
+
 
 // Configure logging using Winston
 /**
@@ -40,11 +45,7 @@ const logger = winston.createLogger({
   ],
 });
 
-/**
- * Creates the base directory and all subfolders if they do not exist
- * @param {string} baseDirectory - The base directory path
- * @param {string[]} folders - The array of folder names to create
-*/
+
 // Create folders based on the provided baseDirectory and folders array
 function createFolders(baseDirectory, folders) {
   // Check if the baseDirectory exists, if not create it
@@ -63,11 +64,7 @@ function createFolders(baseDirectory, folders) {
 }
 
 // Move a file to the destinationFolder
-/**
- * Renames a file to the destination path
- * @param {string} file - The file path to move
- * @param {string} destinationFolder - The folder to move the file to
- */
+
 function moveFile(file, destinationFolder) {
   // Create the full path of the destination file by joining the destinationFolder and the file name
   const destination = path.join(destinationFolder, path.basename(file));
@@ -87,11 +84,7 @@ function moveFile(file, destinationFolder) {
 }
 
 // Organize files in the provided directory based on the fileTypeMapping
-/**
- * Organizes files in a directory by moving them to their corresponding folders
- * @param {string} directory - The directory path to organize
- * @param {object} fileTypeMapping - The file type to folder mapping
- */
+
 function organizeFiles(directory, fileTypeMapping) {
   const files = fs.readdirSync(directory);
 
